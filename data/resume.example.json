@@ -1,0 +1,99 @@
+{
+  "name": "VICTOR ZARZAR",
+  "title": "Front-End • Web Development",
+  "email": "example@email.com",
+  "phone_e164": "+10000000000",
+  "phone_display": "(00) 00000-0000",
+  "location": "Remote / Brazil",
+  "linkedin_url": "https://www.linkedin.com/in/example-profile",
+  "github_url": "https://github.com/example-user",
+  "website_url": "https://example.com",
+  "summary": "Computer Science student with a strong foundation in programming logic and hands-on experience building web applications and APIs. Example...",
+
+  "skills": [
+    {
+      "group": "Programming",
+      "items": ["JavaScript", "Node.js", "HTML", "CSS", "SQL"]
+    },
+    {
+      "group": "Frameworks",
+      "items": ["Next.js", "Express.js", "React"]
+    },
+    {
+      "group": "Databases",
+      "items": ["PostgreSQL", "MongoDB", "ORM concepts"]
+    },
+    {
+      "group": "Cloud & Infrastructure",
+      "items": [
+        "Cloud fundamentals",
+        "Monitoring concepts",
+        "Networking basics",
+        "Linux basics"
+      ]
+    },
+    {
+      "group": "Tools",
+      "items": ["Git", "GitHub", "Docker", "CI/CD concepts"]
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Front-End Web Development",
+      "issuer": "Rocketseat",
+      "date": "2024",
+      "description": [
+        "Advanced front-end concepts with React and modern tooling",
+        "Focus on component architecture, performance, and best practices"
+      ],
+      "links": [
+        {
+          "label": "Certificate",
+          "url": "https://example.com/certificate-link"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "2023",
+      "description": [
+        "Core JavaScript fundamentals",
+        "Algorithms, data structures, and problem solving"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Technical Support Analyst",
+      "company": "Example Technology Company",
+      "date": "2021 — Present",
+      "bullets": [
+        "Provided technical support and troubleshooting for systems and network-related issues",
+        "Assumed operational coordination responsibilities on multiple occasions, organizing tasks and prioritizing incidents",
+        "Communicated technical problems clearly to both technical and non-technical stakeholders"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "title": "Bachelor’s Degree in Computer Science",
+      "subtitle": "Example University",
+      "date": "In progress — Expected 2029"
+    },
+    {
+      "title": "Associate Degree in Systems Analysis and Development",
+      "subtitle": "Example University",
+      "date": "Completed — 2023"
+    }
+  ],
+
+  "languages": [
+    {
+      "name": "English",
+      "level": "Intermediate",
+      "note": "Technical reading and conversational skills"
+    }
+  ]
+}
