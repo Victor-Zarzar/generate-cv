@@ -1,0 +1,101 @@
+{
+  "name": "VICTOR ZARZAR",
+  "title": "Front-End • Desenvolvimento Web",
+  "email": "example@email.com",
+  "phone_e164": "+10000000000",
+  "phone_display": "(00) 00000-0000",
+  "location": "Remoto / Brasil",
+  "linkedin_url": "https://www.linkedin.com/in/example-profile",
+  "github_url": "https://github.com/example-user",
+  "website_url": "https://example.com",
+  "summary": "Estudante de Ciência da Computação com sólida base em lógica de programação e experiência prática no desenvolvimento de aplicações web e APIs.",
+
+  "skills": [
+    {
+      "group": "Programação",
+      "items": ["JavaScript", "Node.js", "HTML", "CSS", "SQL"]
+    },
+    {
+      "group": "Frameworks",
+      "items": ["Next.js", "Express.js", "React"]
+    },
+    {
+      "group": "Bancos de Dados",
+      "items": ["PostgreSQL", "MongoDB", "Conceitos de ORM"]
+    },
+    {
+      "group": "Cloud & Infraestrutura",
+      "items": [
+        "Fundamentos de cloud",
+        "Conceitos de monitoramento",
+        "Noções de redes",
+        "Fundamentos de Linux"
+      ]
+    },
+    {
+      "group": "Ferramentas",
+      "items": ["Git", "GitHub", "Docker", "Conceitos de CI/CD"]
+    }
+  ],
+
+  "certificates": [
+    {
+      "title": "Desenvolvimento Web Front-End",
+      "issuer": "Rocketseat",
+      "date": "2024",
+      "description": [
+        "Conceitos avançados de front-end com React e ferramentas modernas",
+        "Foco em arquitetura de componentes, performance e boas práticas"
+      ],
+      "links": [
+        {
+          "label": "Certificado",
+          "url": "https://example.com/certificate-link"
+        }
+      ]
+    },
+    {
+      "title": "Algoritmos e Estruturas de Dados em JavaScript",
+      "issuer": "freeCodeCamp",
+      "date": "2023",
+      "description": [
+        "Fundamentos essenciais de JavaScript",
+        "Algoritmos, estruturas de dados e resolução de problemas"
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "role": "Analista de Suporte Técnico",
+      "company": "Empresa de Tecnologia (Exemplo)",
+      "date": "2021 — Atual",
+      "bullets": [
+        "Prestação de suporte técnico e resolução de problemas relacionados a sistemas e redes",
+        "Atuação em atividades de coordenação operacional em diversas ocasiões, organizando tarefas e priorizando incidentes",
+        "Comunicação clara de problemas técnicos para públicos técnicos e não técnicos"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "title": "Bacharelado em Ciência da Computação",
+      "subtitle": "Universidade Exemplo",
+      "date": "Em andamento — Previsão 2029"
+    },
+    {
+      "title": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+      "subtitle": "Universidade Exemplo",
+      "date": "Concluído — 2023"
+    }
+  ],
+
+  "languages": [
+    {
+      "name": "Inglês",
+      "level": "Intermediário",
+      "note": "Leitura técnica e conversação"
+    }
+  ]
+}

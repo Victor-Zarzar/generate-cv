@@ -1,29 +1,46 @@
-import { chromium } from "playwright";
-import path from "path";
 import fs from "fs";
+import path from "path";
+import { chromium } from "playwright";
 
-const distHtml = path.resolve(process.cwd(), "dist", "cv.html");
-const outPdf = path.resolve(process.cwd(), "dist", "cv.pdf");
-
-if (!fs.existsSync(distHtml)) {
-  console.error("dist/cv.html It doesn't exist. Run: bun run build");
-  process.exit(1);
+function getArg(name) {
+  const idx = process.argv.indexOf(name);
+  if (idx === -1) return null;
+  return process.argv[idx + 1] ?? null;
 }
 
-const html = fs.readFileSync(distHtml, "utf8");
-const baseUrl = `file://${path.dirname(distHtml)}/`;
+function normalizeLocale(input) {
+  const raw = String(input ?? "").trim();
+  if (!raw) return "en-US";
+  if (raw === "pt" || raw === "pt-br" || raw === "pt-BR") return "pt-BR";
+  if (raw === "en" || raw === "en-us" || raw === "en-US") return "en-US";
+  return "en-US";
+}
+
+const root = process.cwd();
+const distDir = path.join(root, "dist");
+
+const locale = normalizeLocale(getArg("--locale") ?? process.env.LOCALE ?? "en-US");
+
+const htmlPath = path.join(distDir, `cv.${locale}.html`);
+const pdfPath = path.join(distDir, `cv.${locale}.pdf`);
+
+if (!fs.existsSync(htmlPath)) {
+  console.error(`${htmlPath} It doesn't exist. Run: bun scripts/render.mjs --locale ${locale}`);
+  process.exit(1);
+}
 
 const browser = await chromium.launch();
 const page = await browser.newPage();
 
-await page.setContent(html, { waitUntil: "load", baseURL: baseUrl });
+await page.goto(`file://${htmlPath}`, { waitUntil: "networkidle" });
 
 await page.pdf({
-  path: outPdf,
+  path: pdfPath,
   format: "A4",
   printBackground: true,
-  margin: { top: "0.5in", right: "0.5in", bottom: "0.5in", left: "0.5in" },
+  margin: { top: "14mm", right: "14mm", bottom: "14mm", left: "14mm" },
 });
 
 await browser.close();
-console.log("Generated: dist/cv.pdf");
+
+console.log(`Generated: ${pdfPath}`);

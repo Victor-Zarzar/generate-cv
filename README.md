@@ -8,10 +8,11 @@
   <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/PDF-EC1C24?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="PDF">
+  <img src="https://img.shields.io/badge/i18n-pt--BR%20%7C%20en--US-blue?style=for-the-badge" alt="i18n">
 </p>
 
 <p align="center">
-  Modern ATS-optimized CV generator that builds professional resumes from structured data and exports them to PDF format.
+  Modern ATS-optimized CV generator that builds professional resumes from structured data and exports them to PDF format. Supports multiple languages: <strong>Portuguese (pt-BR)</strong> and <strong>English (en-US)</strong>.
 </p>
 
 ---
@@ -37,6 +38,7 @@
 
 - **ATS-Optimized** - CV format optimized for Applicant Tracking Systems
 - **PDF Export** - High-quality PDF generation using Playwright
+- **Multi-language (i18n)** - Generate your CV in Portuguese (pt-BR) or English (en-US)
 - **Fast Build** - Powered by Bun for lightning-fast builds
 - **Structured Data** - Clean separation between content and presentation
 - **Professional Layout** - Modern, clean design that passes ATS scanners
@@ -107,16 +109,23 @@ This will execute the `scripts/render.mjs` file and create your CV in HTML forma
 
 ### Generate PDF
 
-Create a PDF version of your CV:
+#### Portuguese (pt-BR)
 
 ```bash
-make pdf
+make pdf-pt
 ```
 
-This command will:
+#### English (en-US)
+
+```bash
+make pdf-en
+```
+
+Both commands will:
 
 1. Build the HTML version (if not already built)
-2. Use Playwright to render and export the CV as PDF
+2. Load the corresponding locale data file (`resume.pt-BR.json` or `resume.en-US.json`)
+3. Use Playwright to render and export the CV as a PDF
 
 The PDF will be generated in the `dist/` folder.
 
@@ -125,7 +134,8 @@ The PDF will be generated in the `dist/` folder.
 To build and generate PDF in one go:
 
 ```bash
-make build && make pdf
+make build && make pdf-pt   # Portuguese
+make build && make pdf-en   # English
 ```
 
 ### Clean Environment
@@ -142,13 +152,14 @@ make clean
   Makefile Commands Reference
 </h2>
 
-| Command      | Description                                      |
-| ------------ | ------------------------------------------------ |
-| `make setup` | Install dependencies and setup Playwright        |
-| `make build` | Build the HTML version of the CV                 |
-| `make pdf`   | Generate a PDF version of the CV                 |
-| `make clean` | Clean up the project (remove node_modules, dist) |
-| `make help`  | Display all available commands                   |
+| Command       | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `make setup`  | Install dependencies and setup Playwright        |
+| `make build`  | Build the HTML version of the CV                 |
+| `make pdf-pt` | Generate a PDF version of the CV in Portuguese   |
+| `make pdf-en` | Generate a PDF version of the CV in English      |
+| `make clean`  | Clean up the project (remove node_modules, dist) |
+| `make help`   | Display all available commands                   |
 
 ---
 
@@ -157,15 +168,45 @@ make clean
 </h2>
 
 ```
-ats-generate-cv/
-├── scripts/                # Build and export scripts
-│   ├── render.mjs          # HTML rendering script
-│   └── export-pdf.mjs      # PDF export script
-├── dist/                   # Generated output (HTML & PDF)
-├── package.json            # Project dependencies
-├── Makefile               # Build automation
-└── README.md              # This file
+generate-cv/
+├── scripts/
+│   ├── render.mjs
+│   ├── export-pdf.mjs
+│   └── lib/
+│       ├── i18n.mjs          # Internationalization helpers
+│       ├── html.mjs
+│       ├── sections.mjs
+│       └── paths.mjs
+├── data/
+│   ├── resume.pt-BR.json     # CV content in Portuguese
+│   └── resume.en-US.json     # CV content in English
+├── templates/
+│   ├── index.html
+│   └── style.css
+└── dist/
 ```
+
+---
+
+<h2 id="i18n">
+  Internationalization (i18n)
+</h2>
+
+The project supports multiple languages through locale-specific JSON data files located in the `data/` directory.
+
+### Supported Locales
+
+| Locale  | Language            | Data File                |
+| ------- | ------------------- | ------------------------ |
+| `pt-BR` | Portuguese (Brazil) | `data/resume.pt-BR.json` |
+| `en-US` | English (US)        | `data/resume.en-US.json` |
+
+### Adding a New Language
+
+1. Duplicate an existing file in `data/`, e.g. `data/resume.es-ES.json`
+2. Translate all string values to the target language
+3. Add a corresponding `make pdf-<locale>` command in the `Makefile`
+4. Run `make build && make pdf-<locale>` to generate the new PDF
 
 ---
 
@@ -177,18 +218,18 @@ ats-generate-cv/
 
 To customize your CV with your own information:
 
-1. Locate your CV data file (typically in the project root or a `data/` folder)
+1. Edit the relevant data file in the `data/` folder (`resume.pt-BR.json` or `resume.en-US.json`)
 2. Update your personal information, work experience, education, and skills
 3. Run `make build` to regenerate the HTML
-4. Run `make pdf` to create the updated PDF
+4. Run `make pdf-pt` or `make pdf-en` to create the updated PDF
 
 ### Styling
 
 The CV uses HTML and CSS for styling. To customize the appearance:
 
-1. Edit the CSS styles in your template files
+1. Edit the CSS styles in `templates/style.css`
 2. Rebuild using `make build`
-3. Regenerate PDF with `make pdf`
+3. Regenerate the PDF with `make pdf-pt` or `make pdf-en`
 
 ---
 
@@ -262,7 +303,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Your Name - [@victorzarzar](https://github.com/victorzarzar)
 
-Project Link: [https://github.com/victorzarzar/ats-generate-cv](https://github.com/victorzarzar/ats-generate-cv)
+Project Link: [https://github.com/victorzarzar/generate-cv](https://github.com/victorzarzar/generate-cv)
 
 ---
 
