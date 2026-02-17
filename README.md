@@ -63,8 +63,8 @@ Before starting, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ats-generate-cv
-cd ats-generate-cv
+git clone https://github.com/Victor-Zarzar/generate-cv
+cd generate-cv
 ```
 
 ### 2. Initial Setup
