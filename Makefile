@@ -4,8 +4,7 @@ TAG = 1.0.0
 LOCALE ?= en-US
 
 setup:
-	bun install
-	bunx playwright install
+	bun install && bunx playwright install
 
 build:
 	LOCALE=$(LOCALE) bun scripts/render.mjs

@@ -5,7 +5,11 @@
   "scripts": {
     "setup": "bun install && bunx playwright install",
     "build": "bun scripts/render.mjs",
-    "pdf": "bun scripts/export-pdf.mjs"
+    "build-pt": "bun scripts/render.mjs --locale pt-BR",
+    "build-en": "bun scripts/render.mjs --locale en-US",
+    "pdf-pt": "bun scripts/export-pdf.mjs --locale pt-BR",
+    "pdf-en": "bun scripts/export-pdf.mjs --locale en-US",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "playwright": "^1.50.0"
